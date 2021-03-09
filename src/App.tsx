@@ -1,9 +1,8 @@
+import { registerRootComponent } from 'expo';
 import React, { Component } from 'react';
-
 import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native';
 
 export default class App extends Component<{}> {
-
 
   render() {
     return (
@@ -12,7 +11,7 @@ export default class App extends Component<{}> {
         <TouchableOpacity style={styles.SpotifyStyle} activeOpacity={0.5}>
 
           <Image
-            source={require('./assets/spotify_logo.png')}
+            source={require('../assets/spotify_logo.png')}
             style={styles.ImageIconStyle}
           />
 
@@ -26,7 +25,7 @@ export default class App extends Component<{}> {
         <TouchableOpacity style={styles.AppleMusicStyle} activeOpacity={0.5}>
 
           <Image
-            source={require('./assets/applemusic_logo.png')}
+            source={require('../assets/applemusic_logo.png')}
             style={styles.ImageIconStyle}
           />
 
@@ -40,7 +39,7 @@ export default class App extends Component<{}> {
         <TouchableOpacity style={styles.SoundCloudStyle} activeOpacity={0.5}>
 
           <Image
-            source={require('./assets/soundcloud_logo.png')}
+            source={require('../assets/soundcloud_logo.png')}
             style={styles.ImageIconStyle}
           />
 
@@ -54,7 +53,6 @@ export default class App extends Component<{}> {
     );
   }
 }
-
 
 const styles = StyleSheet.create({
 
@@ -127,3 +125,6 @@ const styles = StyleSheet.create({
   }
 
 });
+
+
+registerRootComponent(App);
