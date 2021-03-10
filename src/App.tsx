@@ -1,8 +1,18 @@
 import { registerRootComponent } from 'expo';
 import React, { Component } from 'react';
-import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text, Image, TouchableOpacity, Linking, Button } from 'react-native';
+// import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default class App extends Component<{}> {
+
+
+  handleClick = (AccountLink) => { 
+    if (AccountLink == 'Spotify') Linking.openURL('https://accounts.spotify.com/en/login')
+    if (AccountLink == 'Apple') Linking.openURL('https://music.apple.com/login') 
+    if (AccountLink == 'SoundCloud') Linking.openURL('https://soundcloud.com/djlogin') 
+
+  
+  };
 
   render() {
     return (
@@ -14,6 +24,7 @@ export default class App extends Component<{}> {
         />
 
         <TouchableOpacity style={styles.SpotifyStyle} activeOpacity={0.5}>
+        <TouchableOpacity onPress={()=>{this.handleClick('Spotify')}} style={styles.SpotifyStyle} activeOpacity={0.5}>
 
           <Image
             source={require('../assets/spotify_logo.png')}
@@ -22,12 +33,13 @@ export default class App extends Component<{}> {
 
           <View style={styles.SeparatorLine} />
 
+
           <Text style={styles.TextStyle}> Login Using Spotify </Text>
 
         </TouchableOpacity>
 
 
-        <TouchableOpacity style={styles.AppleMusicStyle} activeOpacity={0.5}>
+        <TouchableOpacity onPress={()=>{this.handleClick('Apple')}} style={styles.AppleMusicStyle} activeOpacity={0.5}>
 
           <Image
             source={require('../assets/applemusic_logo.png')}
@@ -41,7 +53,7 @@ export default class App extends Component<{}> {
         </TouchableOpacity>
 
 
-        <TouchableOpacity style={styles.SoundCloudStyle} activeOpacity={0.5}>
+        <TouchableOpacity onPress={()=>{this.handleClick('SoundCloud')}} style={styles.SoundCloudStyle} activeOpacity={0.5}>
 
           <Image
             source={require('../assets/soundcloud_logo.png')}
