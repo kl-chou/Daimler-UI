@@ -8,6 +8,11 @@ export default class App extends Component<{}> {
     return (
       <View style={styles.MainContainer}>
 
+        <Image 
+          source={require('../assets/mercedes_logo.png')} 
+          style={styles.MercedesLogo}
+        />
+
         <TouchableOpacity style={styles.SpotifyStyle} activeOpacity={0.5}>
 
           <Image
@@ -122,6 +127,13 @@ const styles = StyleSheet.create({
     width: 1,
     height: 40
 
+  },
+
+  MercedesLogo: {
+    flex: 1,
+    width: 500,
+    height: 500,
+    resizeMode: 'contain'
   }
 
 });
