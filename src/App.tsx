@@ -18,12 +18,28 @@ export default class App extends Component<{}> {
     return (
       <View style={styles.MainContainer}>
 
+        <Text>{'\n'}</Text>
+        <Text>{'\n'}</Text>
+        <Text>{'\n'}</Text>
+        <Text>{'\n'}</Text>
+        <Text>{'\n'}</Text>
+        <Text>{'\n'}</Text>
+        <Text>{'\n'}</Text>
+        <Text>{'\n'}</Text>
+        <Text>{'\n'}</Text>
+        <Text>{'\n'}</Text>
+        <Text>{'\n'}</Text>
+        <Text>{'\n'}</Text>
+        <Text>{'\n'}</Text>
+        <Text>{'\n'}</Text>
+
+        <Text style={{fontWeight: 'bold', color: 'white', fontSize: 72}}> Mercedes-Benz </Text>
+        
         <Image 
           source={require('../assets/mercedes_logo.png')} 
           style={styles.MercedesLogo}
         />
 
-        <TouchableOpacity style={styles.SpotifyStyle} activeOpacity={0.5}>
         <TouchableOpacity onPress={()=>{this.handleClick('Spotify')}} style={styles.SpotifyStyle} activeOpacity={0.5}>
 
           <Image
@@ -65,7 +81,6 @@ export default class App extends Component<{}> {
           <Text style={styles.TextStyle}> Login Using SoundCloud </Text>
 
         </TouchableOpacity>
-
       </View>
     );
   }
@@ -77,7 +92,8 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    margin: 10
+    margin: 10,
+    backgroundColor: '#08112f'
   },
 
   AppleMusicStyle: {
@@ -143,10 +159,10 @@ const styles = StyleSheet.create({
 
   MercedesLogo: {
     flex: 1,
-    width: 500,
-    height: 500,
+    width: 250,
+    height: 250,
     resizeMode: 'contain'
-  }
+  },
 
 });
 
