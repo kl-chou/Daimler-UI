@@ -1,5 +1,7 @@
 {
   "dependencies": {
+    "@react-navigation/native": "^5.9.3",
+    "@react-navigation/stack": "^5.14.3",
     "expo": "~40.0.0",
     "galio-framework": "^0.7.1",
     "react": "16.13.1",
