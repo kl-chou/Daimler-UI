@@ -4,9 +4,7 @@ import 'react-native-gesture-handler';
 
 // class Accounts extends Component {
 function handleClick (AccountLink, navigation) {
-        if (AccountLink == 'Spotify') {
-            navigation.push('Song')
-        }
+        if (AccountLink == 'Spotify') navigation.push('Home') //use navigate to change screens to song player
         if (AccountLink == 'Apple') Linking.openURL('https://music.apple.com/login')
         if (AccountLink == 'SoundCloud') Linking.openURL('https://soundcloud.com/djlogin')
     };
@@ -21,7 +19,7 @@ function Accounts ({navigation}) {
                         style={styles.MercedesLogo}
                     />
 
-                    <Text style={{ fontWeight: 'bold', color: 'white', fontSize: 72 }}> Mercedes-Benz </Text>
+                    <Text style={{ fontWeight: 'bold', color: 'white', fontSize: 72, marginBottom: 15 }}> Mercedes-Benz </Text>
                 </View>
 
                 <View style={styles.ButtonContainer}>
@@ -150,7 +148,9 @@ const styles = StyleSheet.create({
     MercedesContainer: {
         flex: 1,
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        // position: 'absolute',
+        marginTop: 30
     },
 
     ButtonContainer: {
