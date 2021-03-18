@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, Image, TouchableOpacity, Linking, Button } from 'react-native';
+import 'react-native-gesture-handler';
 
-class Accounts extends Component {
-    handleClick = (AccountLink) => {
-        if (AccountLink == 'Spotify') Linking.openURL('https://accounts.spotify.com/en/login')
+// class Accounts extends Component {
+function handleClick (AccountLink, navigation) {
+        if (AccountLink == 'Spotify') {
+            navigation.push('Song')
+        }
         if (AccountLink == 'Apple') Linking.openURL('https://music.apple.com/login')
         if (AccountLink == 'SoundCloud') Linking.openURL('https://soundcloud.com/djlogin')
     };
 
-    render() {
+function Accounts ({navigation}) {
+    // render() {
         return (
             <View style={styles.MainContainer}>
                 <View style={styles.MercedesContainer}>
@@ -21,7 +25,7 @@ class Accounts extends Component {
                 </View>
 
                 <View style={styles.ButtonContainer}>
-                    <TouchableOpacity onPress={() => { this.handleClick('Spotify') }} style={styles.SpotifyStyle} activeOpacity={0.5}>
+                    <TouchableOpacity onPress={() => { handleClick('Spotify', navigation) }} style={styles.SpotifyStyle} activeOpacity={0.5}>
 
                         <Image
                             source={require('../assets/spotify_logo.png')}
@@ -66,7 +70,7 @@ class Accounts extends Component {
                 </View>
             </View>
         );
-    }
+    // }
 }
 
 const styles = StyleSheet.create({
@@ -145,6 +149,7 @@ const styles = StyleSheet.create({
 
     MercedesContainer: {
         flex: 1,
+        alignItems: 'center',
         justifyContent: 'center'
     },
 
