@@ -4,19 +4,27 @@ import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Accounts from './Accounts';
+import Player from './Player';
 
 const Stack = createStackNavigator();
 const App = () => {
     return (
       <NavigationContainer>
         <Stack.Navigator>
-        <Stack.Screen name="Login" component={Accounts} />
-        <Stack.Screen name="Song" component={Home} options={{ title: 'Mercedes Song Player' }} />
+        <Stack.Screen name="Login" component={Accounts} options={{ title: 'Login Page' }} />
+        <Stack.Screen name="Home" component={Home} options={{ title: 'MBUX Home Screen' }} />
+        <Stack.Screen name="Player" component={Player} options={{ title: 'MBUX Song Player' }} />
       </Stack.Navigator>
         {/* Rest of your app code */}
       </NavigationContainer>
     );
   };
+
+function handleClick(pageType, navigation) {
+    console.log(pageType)
+    if (pageType == 'Player') navigation.push('Player') //navigate to Player screen
+
+}
 
 
 function Home ({navigation}) {
@@ -26,42 +34,18 @@ function Home ({navigation}) {
             <View style={styles.MainContainer}>
                 <View style={styles.TopContainer}> 
 
-                    <TouchableOpacity onPress={() => { }} style={styles.TouchableStyle} activeOpacity={0.5}>
-                        <Image
-                            source={require('../assets/player.png')}
-                            style={styles.PlayerLogo}
-                        />
-                        {/* <figcaption class="caption">Text below the image</figcaption> */}
+                    <TouchableOpacity onPress={() => {handleClick('Player', navigation) }} style={styles.TouchableStyle} activeOpacity={0.5}>
+                        <Image source={require('../assets/player.png')} style={styles.PlayerLogo} />
                         <Text style={styles.PlayerStyle}> Player </Text>
 
-                    {/* </TouchableOpacity> */}
-
-
                     {/* <TouchableOpacity onPress={() => { }} style={styles.TouchableStyle} activeOpacity={0.5}> */}
-
-                        <Image
-                            source={require('../assets/library.png')}
-                            style={styles.PlayerLogo}
-                        />
+                        <Image source={require('../assets/library.png')} style={styles.PlayerLogo} />
                         <Text style={styles.LibraryStyle}> Library </Text>
 
 
-                        <Image
-                            source={require('../assets/search.png')}
-                            style={styles.PlayerLogo}
-                        />  
+                        <Image source={require('../assets/search.png')} style={styles.PlayerLogo} />  
                         <Text style={styles.SearchStyle}> Search </Text>
                         <Text style={styles.RecentStyle}> Recently Played: </Text>
-
-
-                    {/* <TouchableOpacity style={styles.Player} activeOpacity={0.5}> */}
-                        {/* <Image
-                        source={require('../assets/spotify_logo.png')}
-                        style={styles.ImageIconStyle}
-                        /> */}
-                        {/* <View style={styles.SeparatorLine} /> */}
-                        {/* <Text style={styles.TextStyle}> Login Using Facebook </Text> */}
-                    {/* </TouchableOpacity> */}
 
                         {/* <Button
                         title="Enter"
@@ -74,37 +58,15 @@ function Home ({navigation}) {
 
                 </View>
 
+                {/* container for bottom elements (song images) */}
                 <View style={styles.BottomContainer}> 
                 <TouchableOpacity onPress={() => { }} style={styles.TouchableStyle} activeOpacity={0.5}>
-                    <Image
-                        source={require('../assets/song_1.png')}
-                        style={styles.SongLogo}
-                    />  
-                    
-                    <Image
-                        source={require('../assets/song_2.png')}
-                        style={styles.SongLogo}
-                    />
-                    
-                    <Image
-                        source={require('../assets/song_3.png')}
-                        style={styles.SongLogo}
-                    />
-                    <Image
-                        source={require('../assets/song_4.png')}
-                        style={styles.SongLogo}
-                    />    
-                    <Image
-                        source={require('../assets/song_5.png')}
-                        style={styles.SongLogo}
-                    />                             
+                    <Image source={require('../assets/song_1.png')} style={styles.SongLogo} />  
+                    <Image source={require('../assets/song_2.png')} style={styles.SongLogo} />
+                    <Image source={require('../assets/song_3.png')} style={styles.SongLogo} />
+                    <Image source={require('../assets/song_4.png')} style={styles.SongLogo} />    
+                    <Image source={require('../assets/song_5.png')} style={styles.SongLogo} />                             
                 </TouchableOpacity>
-
-
-
-
-
-
                 </View>
 
 
